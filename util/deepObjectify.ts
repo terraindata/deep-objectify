@@ -44,55 +44,40 @@ THE SOFTWARE.
 
 // Copyright 2018 Terrain Data, Inc.
 
-import objectify from '../../transformations/deepObjectify';
+/**
+ * This is a simple, general-purpose module that traverses
+ * a nested object and turns any arrays encountered
+ * into equivalent objects (arrays and objects are equivalent
+ * in JS).
+ */
 
-const simple = ['a', 'b', 'c'];
+import isPrimitive = require('is-primitive');
 
-const hard = {
-  name: 'Bob',
-  arr: ['sled', [{ a: 'dog' }, { b: 'doggo', a: 'fren' }]],
-  hardarr: [['a'], ['b', ['c']]],
-};
-
-test('simple', () =>
+/**
+ * Converts any arrays in a deeply nested object
+ * into equivalent objects.
+ *
+ * @param arr A deeply nested object or array to convert.
+ * @returns   A copy of arr where all arrays are replaced
+ *            by their equivalent object representations.
+ */
+export default function objectify(arr)
 {
-  expect(objectify(simple)).toEqual(
+  if (isPrimitive(arr))
+  {
+    return arr;
+  }
+  let obj: object = Object.assign({}, arr);
+  if (arr.constructor === Array)
+  {
+    obj = { ...arr };
+  }
+  for (const key in obj)
+  {
+    if (obj.hasOwnProperty(key))
     {
-      0: 'a',
-      1: 'b',
-      2: 'c',
-    },
-  );
-});
-
-test('hard', () =>
-{
-  expect(objectify(hard)).toEqual(
-    {
-      name: 'Bob',
-      arr: {
-        0: 'sled',
-        1: {
-          0: {
-            a: 'dog',
-          },
-          1: {
-            a: 'fren',
-            b: 'doggo',
-          },
-        },
-      },
-      hardarr: {
-        0: {
-          0: 'a',
-        },
-        1: {
-          0: 'b',
-          1: {
-            0: 'c',
-          },
-        },
-      },
-    },
-  );
-});
+      obj[key] = objectify(obj[key]);
+    }
+  }
+  return obj;
+}

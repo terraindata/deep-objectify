@@ -44,25 +44,55 @@ THE SOFTWARE.
 
 // Copyright 2018 Terrain Data, Inc.
 
-import isPrimitive = require('is-primitive');
+import objectify from '../../util/deepObjectify';
 
-export default function objectify(arr)
+const simple = ['a', 'b', 'c'];
+
+const hard = {
+  name: 'Bob',
+  arr: ['sled', [{ a: 'dog' }, { b: 'doggo', a: 'fren' }]],
+  hardarr: [['a'], ['b', ['c']]],
+};
+
+test('simple', () =>
 {
-  if (isPrimitive(arr))
-  {
-    return arr;
-  }
-  let obj: object = Object.assign({}, arr);
-  if (arr.constructor === Array)
-  {
-    obj = { ...arr };
-  }
-  for (const key in obj)
-  {
-    if (obj.hasOwnProperty(key))
+  expect(objectify(simple)).toEqual(
     {
-      obj[key] = objectify(obj[key]);
-    }
-  }
-  return obj;
-}
+      0: 'a',
+      1: 'b',
+      2: 'c',
+    },
+  );
+});
+
+test('hard', () =>
+{
+  expect(objectify(hard)).toEqual(
+    {
+      name: 'Bob',
+      arr: {
+        0: 'sled',
+        1: {
+          0: {
+            a: 'dog',
+          },
+          1: {
+            a: 'fren',
+            b: 'doggo',
+          },
+        },
+      },
+      hardarr: {
+        0: {
+          0: 'a',
+        },
+        1: {
+          0: 'b',
+          1: {
+            0: 'c',
+          },
+        },
+      },
+    },
+  );
+});
