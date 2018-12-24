@@ -1,6 +1,6 @@
 # deepObjectify
 [![Build Status](https://travis-ci.org/terraindata/deepObjectify.svg?branch=master)](https://travis-ci.org/terraindata/deepObjectify)
-[![version](https://img.shields.io/npm/v/array-typeof-values.svg)](https://www.npmjs.org/package/array-typeof-values)
+[![version](https://img.shields.io/npm/v/deepObjectify.svg)](https://www.npmjs.org/package/deepObjectify)
 [![dependencies](https://david-dm.org/terraindata/deepObjectify.svg)](https://david-dm.org/terraindata/deepObjectify)
 [![devDependencies](https://david-dm.org/terraindata/deepObjectify/dev-status.svg)](https://david-dm.org/terraindata/deepObjectify#info=devDependencies)
 
@@ -22,5 +22,5 @@ var objectify = require('deepObjectify');
 objectify({foo: 'bar', x: ['a', 'b']}); // -> {foo: 'bar', x: {'0': 'a', '1': 'b'}}
 ```
 
-See also [deepObjectifyTests.ts].
+See also [deepObjectifyTests.ts](https://github.com/terraindata/deepObjectify/blob/master/deepObjectifyTests.ts).
 
