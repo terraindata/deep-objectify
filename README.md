@@ -6,7 +6,7 @@
 
 _Curly brackets all the way down_
 
-This is a tiny JS utility that converts deeply nested structures, which may include layers of objects and arrays, to pure nested objects.  The key feature is converting arrays to objects.  While objects and arrays more or less equivalent in JS, it may be easier to reason about complicated data processing and storage if you can guaranteee that your complex JSON object has values that are stricly primitives or child JSON objects.
+This is a tiny JS utility that converts deeply nested structures, which may include layers of objects and arrays, to pure nested objects.  The key feature is converting arrays to objects.  While objects and arrays are more or less equivalent in JS, it may be easier to reason about complicated data processing and storage if you can guaranteee that your complex JSON object has values that are stricly primitives or child JSON objects.
 
 TypeScript definitions included!
 
