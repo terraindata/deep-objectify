@@ -1,8 +1,8 @@
-# deepObjectify
-[![Build Status](https://travis-ci.org/terraindata/deepObjectify.svg?branch=master)](https://travis-ci.org/terraindata/deepObjectify)
-[![version](https://img.shields.io/npm/v/deepObjectify.svg)](https://www.npmjs.org/package/deepObjectify)
-[![dependencies](https://david-dm.org/terraindata/deepObjectify.svg)](https://david-dm.org/terraindata/deepObjectify)
-[![devDependencies](https://david-dm.org/terraindata/deepObjectify/dev-status.svg)](https://david-dm.org/terraindata/deepObjectify#info=devDependencies)
+# deep-objectify
+[![Build Status](https://travis-ci.org/terraindata/deep-objectify.svg?branch=master)](https://travis-ci.org/terraindata/deep-objectify)
+[![version](https://img.shields.io/npm/v/deep-objectify.svg)](https://www.npmjs.org/package/deep-objectify)
+[![dependencies](https://david-dm.org/terraindata/deep-objectify.svg)](https://david-dm.org/terraindata/deep-objectify)
+[![devDependencies](https://david-dm.org/terraindata/deep-objectify/dev-status.svg)](https://david-dm.org/terraindata/deep-objectify#info=devDependencies)
 
 _Curly brackets all the way down_
 
@@ -12,15 +12,15 @@ TypeScript definitions included!
 
 ## Installation
 
-    npm install deepObjectify
+    npm install deep-objectify
 
 ## Usage
 
 ```js
-var objectify = require('deepObjectify');
+var objectify = require('deep-objectify');
 
 objectify({foo: 'bar', x: ['a', 'b']}); // -> {foo: 'bar', x: {'0': 'a', '1': 'b'}}
 ```
 
-See also [deepObjectifyTests.ts](https://github.com/terraindata/deepObjectify/blob/master/deepObjectifyTests.ts).
+See also [deep-objectifyTests.ts](https://github.com/terraindata/deep-objectify/blob/master/deep-objectifyTests.ts).
 
