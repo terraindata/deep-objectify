@@ -22,5 +22,5 @@ var objectify = require('deep-objectify');
 objectify({foo: 'bar', x: ['a', 'b']}); // -> {foo: 'bar', x: {'0': 'a', '1': 'b'}}
 ```
 
-See also [deep-objectifyTests.ts](https://github.com/terraindata/deep-objectify/blob/master/deep-objectifyTests.ts).
+See also [deepObjectifyTests.ts](https://github.com/terraindata/deep-objectify/blob/master/deepObjectifyTests.ts).
 
