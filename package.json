@@ -1,0 +1,57 @@
+{
+  "name": "deepobjectify",
+  "version": "1.0.0",
+  "description": "A simple utility for converting a deep JSON structure to pure nested objects",
+  "main": "dist/deepObjectify.js",
+  "typings": "dist/deepObjectify.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest deepObjectifyTests.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terraindata/deepObjectify.git"
+  },
+  "keywords": [
+    "object",
+    "arrays",
+    "nested",
+    "deep",
+    "objectify"
+  ],
+  "author": "Terrain Data, Inc.",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/terraindata/deepObjectify/issues"
+  },
+  "homepage": "https://github.com/terraindata/deepObjectify#readme",
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "dist"
+    ],
+    "testRegex": "/.+Tests\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "is-primitive": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "@types/node": "^10.12.18",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.2"
+  }
+}

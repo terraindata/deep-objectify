@@ -44,7 +44,7 @@ THE SOFTWARE.
 
 // Copyright 2018 Terrain Data, Inc.
 
-import objectify from '../../util/deepObjectify';
+import objectify from './deepObjectify';
 
 const simple = ['a', 'b', 'c'];
 

@@ -1,4 +1,3 @@
-/*
 University of Illinois/NCSA Open Source License 
 
 Copyright (c) 2018 Terrain Data, Inc. and the authors. All rights reserved.
@@ -40,44 +39,4 @@ CONTRIBUTORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS WITH
 THE SOFTWARE.
-*/
 
-// Copyright 2018 Terrain Data, Inc.
-
-/**
- * This is a simple, general-purpose module that traverses
- * a nested object and turns any arrays encountered
- * into equivalent objects (arrays and objects are equivalent
- * in JS).
- */
-
-const isPrimitive = require('is-primitive');
-
-/**
- * Converts any arrays in a deeply nested object
- * into equivalent objects.
- *
- * @param arr A deeply nested object or array to convert.
- * @returns   A copy of arr where all arrays are replaced
- *            by their equivalent object representations.
- */
-export default function objectify(arr: any)
-{
-  if (isPrimitive(arr))
-  {
-    return arr;
-  }
-  let obj: object = Object.assign({}, arr);
-  if (arr.constructor === Array)
-  {
-    obj = { ...arr };
-  }
-  for (const key in obj)
-  {
-    if (obj.hasOwnProperty(key))
-    {
-      (obj as any)[key] = objectify((obj as any)[key]);
-    }
-  }
-  return obj;
-}
