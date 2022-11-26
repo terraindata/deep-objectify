@@ -1,6 +1,6 @@
 {
   "name": "deep-objectify",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A simple utility for converting a deep JSON structure to pure nested objects",
   "main": "dist/deepObjectify.js",
   "typings": "dist/deepObjectify.d.ts",
